@@ -611,3 +611,51 @@ body {
 .service-card p {
   font-size: 0.88rem;
 }
+
+/* Tuning Contacto */
+
+.contact-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  font-size: 0.78rem;
+  color: var(--color-muted);
+}
+
+.contact-badge::before {
+  content: "●";
+  font-size: 0.65rem;
+  color: var(--color-primary);
+}
+
+.contact-highlight {
+  padding: 0.4rem 0.6rem;
+  margin: 0.35rem 0;
+  border-radius: 0.75rem;
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.45);
+  color: var(--color-text);
+}
+
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.75rem;
+}
+
+@media (max-width: 720px) {
+  .contact-actions {
+    flex-direction: column;
+  }
+
+  .contact-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
