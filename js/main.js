@@ -36,6 +36,35 @@ if (yearSpan) {
   yearSpan.textContent = new Date().getFullYear();
 }
 
+const navDropdowns = document.querySelectorAll('.nav-dropdown');
+if (navDropdowns.length > 0) {
+  const closeAllDropdowns = () => {
+    navDropdowns.forEach((dropdown) => {
+      dropdown.open = false;
+    });
+  };
+
+  document.addEventListener('click', (event) => {
+    navDropdowns.forEach((dropdown) => {
+      if (dropdown.open && !dropdown.contains(event.target)) {
+        dropdown.open = false;
+      }
+    });
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      closeAllDropdowns();
+    }
+  });
+
+  navDropdowns.forEach((dropdown) => {
+    dropdown.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', closeAllDropdowns);
+    });
+  });
+}
+
 const revealElements = document.querySelectorAll('.reveal');
 if (revealElements.length > 0) {
   const observer = new IntersectionObserver(
