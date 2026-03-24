@@ -207,6 +207,21 @@ a {
   position: relative;
 }
 
+.nav-products-link {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.1;
+}
+
+.nav-products-link small {
+  font-size: 0.64rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #86bfd5;
+  margin-top: 0.2rem;
+}
+
 .main-nav a:hover,
 .main-nav a:focus-visible {
   color: var(--brand-2);
@@ -747,6 +762,10 @@ a {
   .main-nav a {
     border-top: 0;
     padding: 0;
+  }
+
+  .nav-products-link small {
+    margin-top: 0.1rem;
   }
 
   .main-nav a::after {
