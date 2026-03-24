@@ -207,19 +207,49 @@ a {
   position: relative;
 }
 
-.nav-products-link {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: flex-start;
-  line-height: 1.1;
+.nav-dropdown {
+  border-top: 1px solid rgba(124, 178, 219, 0.18);
 }
 
-.nav-products-link small {
-  font-size: 0.64rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+.nav-dropdown summary {
+  list-style: none;
+  padding: 0.88rem 1rem;
+  color: var(--muted);
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+}
+
+.nav-dropdown summary::-webkit-details-marker {
+  display: none;
+}
+
+.nav-dropdown summary::after {
+  content: "+";
+  position: absolute;
+  right: 1rem;
   color: #86bfd5;
-  margin-top: 0.2rem;
+}
+
+.nav-dropdown[open] summary::after {
+  content: "-";
+}
+
+.nav-dropdown-menu {
+  display: grid;
+}
+
+.nav-dropdown-menu a {
+  text-decoration: none;
+  padding: 0.72rem 1.6rem;
+  color: #9fd9ff;
+  border-top: 1px solid rgba(124, 178, 219, 0.18);
+  font-size: 0.92rem;
+}
+
+.nav-dropdown-menu a:hover,
+.nav-dropdown-menu a:focus-visible {
+  color: #d8f6ff;
 }
 
 .main-nav a:hover,
@@ -764,14 +794,62 @@ a {
     padding: 0;
   }
 
-  .nav-products-link small {
-    margin-top: 0.1rem;
-  }
-
   .main-nav a::after {
     left: 0;
     right: 0;
     bottom: -0.35rem;
+  }
+
+  .nav-dropdown {
+    position: relative;
+    border-top: 0;
+  }
+
+  .nav-dropdown summary {
+    padding: 0;
+  }
+
+  .nav-dropdown summary::after {
+    content: "▾";
+    position: static;
+    margin-left: 0.4rem;
+    font-size: 0.8rem;
+  }
+
+  .nav-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 0.55rem);
+    left: 0;
+    min-width: 190px;
+    border: 1px solid rgba(124, 178, 219, 0.28);
+    border-radius: 10px;
+    background: rgba(6, 18, 33, 0.96);
+    box-shadow: 0 14px 30px rgba(2, 9, 18, 0.45);
+    padding: 0.35rem;
+    opacity: 0;
+    transform: translateY(-4px);
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .nav-dropdown-menu a {
+    padding: 0.5rem 0.65rem;
+    border-top: 0;
+    border-radius: 8px;
+    color: #b8e7ff;
+  }
+
+  .nav-dropdown-menu a:hover,
+  .nav-dropdown-menu a:focus-visible {
+    background: rgba(34, 211, 238, 0.15);
+  }
+
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown[open] .nav-dropdown-menu,
+  .nav-dropdown:focus-within .nav-dropdown-menu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
   }
 
   .hero {
